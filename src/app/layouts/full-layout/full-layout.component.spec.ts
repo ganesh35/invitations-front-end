@@ -1,17 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { FullLayoutComponent } from './full-layout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreModule } from 'core';
-
-describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+import { HttpClientModule } from '@angular/common/http';
+describe('FullLayoutComponent', () => {
+  let component: FullLayoutComponent;
+  let fixture: ComponentFixture<FullLayoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ], 
+      declarations: [ FullLayoutComponent ], 
       imports: [ 
-          RouterTestingModule, CoreModule
+          RouterTestingModule, CoreModule,
+          HttpClientModule
       ],
       providers: [  ]
     })
@@ -19,7 +20,7 @@ describe('AppComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(FullLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,7 @@
+<lib-topnav></lib-topnav>
+<lib-loading *ngIf="isLoading"></lib-loading>
+<main role="main" *ngIf="!isLoading">
+	<router-outlet></router-outlet>
+</main>
+<lib-footer></lib-footer>
+<lib-cookie-policy></lib-cookie-policy>

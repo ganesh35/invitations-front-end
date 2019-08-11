@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { LogService } from 'core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<router-outlet></router-outlet>`  
 })
-export class AppComponent {
-  title = 'invitations-front-end';
+export class AppComponent implements OnInit {
+	constructor(
+		private _logService: LogService,
+	){
+		this._logService.info("-- Initiated: src/app/app.component:constructor");
+	}
+  	ngOnInit(){}
 }
