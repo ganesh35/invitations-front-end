@@ -7,7 +7,7 @@ import { AddComponent } from './add.component';
 import { EditComponent } from './edit.component';
 import { InviteesComponent } from './_invitees.component';
 
-import { PaginationModule } from 'ngx-bootstrap';
+import { PaginationModule, TabsModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     InvitationRoutingModule, 
     CoreModule,
     CommonModule,
-    PaginationModule.forRoot(),
+    PaginationModule.forRoot(), TabsModule.forRoot(),
     FormsModule
   ],
   declarations: [ ListComponent, AddComponent, EditComponent, InviteesComponent ],

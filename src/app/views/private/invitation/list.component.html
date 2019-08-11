@@ -17,34 +17,78 @@
 <lib-alert *ngIf="errorMsg" [alertType]="'danger'" [alertContent]="errorMsg" (alertClose)="clearMsg()"></lib-alert>
 <lib-alert *ngIf="successMsg" [alertType]="'success'" [alertContent]="successMsg" (alertClose)="clearMsg()"></lib-alert>
 
-<div class="animated fadeIn border mb-3 pb-3">
-	<ul class="list-group">
-	<ng-template ngFor let-b [ngForOf]="payload?.items" let-index=index>
-		<li class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="row">
-                <div class="col-md-8 col-sm-6 col-12 ">
-                	<p><small class="text-muted">{{pageContent?.Fields?.title}}</small> &nbsp; {{b.id}}: {{b.title}}</p>
-                	<p><small class="text-muted">{{pageContent?.Fields?.createdAt}}</small> &nbsp; {{b.createdAt | date}}</p>
-                	<p><small class="text-muted">{{pageContent?.Fields?.updatedAt}}</small> &nbsp; {{b.updatedAt | date}}</p>
 
+
+
+
+<div class="animated fadeIn">
+  <tabset [justified]="true">
+    <tab heading="Created Invitations" id="tab1">
+
+        <div class="animated fadeIn border mb-3 pb-3">
+            <ul class="list-group">
+            <ng-template ngFor let-b [ngForOf]="payload?.items" let-index=index>
+                <li class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6 col-12 ">
+                            <p><small class="text-muted">{{pageContent?.Fields?.title}}</small> &nbsp; {{b.title}}</p>
+                            <p><small class="text-muted">{{pageContent?.Fields?.createdAt}}</small> &nbsp; {{b.createdAt | date}}</p>
+                            <p><small class="text-muted">{{pageContent?.Fields?.updatedAt}}</small> &nbsp; {{b.updatedAt | date}}</p>
+
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-12 text-md-right">
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteItem(index)">
+                                <i class="fa fa-times"></i> <span class="d-none d-sm-block" [innerHTML]="pageContent?.Buttons?.Delete"></span>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" [routerLink]="['/invitations/edit/'+b.id]">
+                                <i class="fa fa-edit"></i><span class="d-none d-sm-block" [innerHTML]="pageContent?.Buttons?.Edit"></span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ng-template>
+            </ul>
+                
+                <div class="mt-3 animated fadeIn" >
+                    <pagination [totalItems]="payload?.paginator?.totalItems" [itemsPerPage]="payload?.paginator?.recordsPerPage"  [(ngModel)]="currentPage"  [maxSize]="5" (click)="loadItems()" [boundaryLinks]="false"></pagination>
                 </div>
-                <div class="col-md-4 col-sm-4 col-12 text-md-right">
-                	<button type="button" class="btn btn-outline-danger" (click)="deleteItem(index)">
-                    	<i class="fa fa-times"></i> <span class="d-none d-sm-block" [innerHTML]="pageContent?.Buttons?.Delete"></span>
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" [routerLink]="['/invitations/edit/'+b.id]">
-                    	<i class="fa fa-edit"></i><span class="d-none d-sm-block" [innerHTML]="pageContent?.Buttons?.Edit"></span>
-                    </button>
-                </div>
-            </div>
-		</li>
-	</ng-template>
-	</ul>
-    	
-    	<div class="mt-3 animated fadeIn" >
-			<pagination [totalItems]="payload?.paginator?.totalItems" [itemsPerPage]="payload?.paginator?.recordsPerPage"  [(ngModel)]="currentPage"  [maxSize]="5" (click)="loadItems()" [boundaryLinks]="false"></pagination>
-		</div>
+        </div>
+
+        
+    </tab>
+    <tab heading="Invited Invitations">
+
+
+        <ul class="list-group">
+            <ng-template ngFor let-b [ngForOf]="received_items" let-index=index>
+                <li class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6 col-12 ">
+                            <p><small class="text-muted">{{pageContent?.Fields?.title}}</small> &nbsp; {{b.title}}</p>
+                            <p><small class="text-muted">{{pageContent?.Fields?.createdAt}}</small> &nbsp; {{b.createdAt | date}}</p>
+                            <p><small class="text-muted">{{pageContent?.Fields?.updatedAt}}</small> &nbsp; {{b.updatedAt | date}}</p>
+                            <p><small class="text-muted">{{pageContent?.Fields?.status}}</small> &nbsp; <strong>{{getInviteeObj(b.id)?.status | titlecase}}</strong></p>
+
+                            
+
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-12 text-md-right">
+                            <button type="button" class="btn btn-outline-success" (click)="changeInvitationStatus('accepted', getInviteeObj(b.id)?.id )" *ngIf="getInviteeObj(b.id)?.status=='invited'">
+                                <i class="fa fa-thumbs-up"></i> <span class="d-none d-sm-block" [innerHTML]="pageContent?.Buttons?.Accept"></span>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" (click)="changeInvitationStatus('rejected', getInviteeObj(b.id)?.id )" *ngIf="getInviteeObj(b.id)?.status=='invited'">
+                                <i class="fa fa-thumbs-down"></i><span class="d-none d-sm-block" [innerHTML]="pageContent?.Buttons?.Reject"></span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ng-template>
+        </ul>
+    </tab>
+  </tabset>
 </div>
+
+
     
 
 

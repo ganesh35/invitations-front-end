@@ -8,12 +8,15 @@
 		"Delete": "Delete",
 		"Edit": "Edit",
 		"Back": "<i class='fa fa-chevron-left'> Back</i>",
-		"Reload": "<i class='fa fa-refresh'> Reload</i>"
+		"Reload": "<i class='fa fa-refresh'> Reload</i>",
+		"Accept": "Accept",
+		"Reject": "Reject"
 	},
 	"Fields": {
 		"title": "Title",
 		"createdAt": "Date Created",
-		"updatedAt": "Date Updated"
+		"updatedAt": "Date Updated",
+		"status": "Status"
 	},
 	"Messages":{
 		"Delete": "Are you sure!!!   You want to delete",

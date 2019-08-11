@@ -60,6 +60,7 @@ export class ListComponent implements OnInit {
                     this.payload = res;
                     if(this.payload['items']){
                         this.payload['items']= JSON.parse(this.payload['items']);
+                        this.loadReceivedItems();
                     }
                 } else {
                 	this.errorMsg=this.pageContent['Messages']['LoadError'];
@@ -72,6 +73,30 @@ export class ListComponent implements OnInit {
             }
         );
     }
+
+    received_items: any;
+    invitee_rows: any;
+    loadReceivedItems(){
+        this.isLoading = true;
+        let url = 'invitations/received';
+
+        this._netService.get(url).subscribe(
+            res => {
+                if(res['items']!= undefined) {
+                    this.received_items = res['items'];
+                    this.invitee_rows = res['invitee_rows'];
+                } else {
+                    this.errorMsg=this.pageContent['Messages']['LoadError'];
+                }
+                this.isLoading = false; 
+            },
+            error => { 
+                this.isLoading = false; 
+                this.errorMsg=this.pageContent['Messages']['UnknownError'];
+            }
+        );
+    }
+
 
 
 
@@ -92,6 +117,37 @@ export class ListComponent implements OnInit {
                     this.errorMsg=this.pageContent['Messages']['UnknownError'];
                 }
             );
+
+    }
+
+
+    changeInvitationStatus(status: string, index: number){
+
+        this.isLoading = true;
+        this._netService.patch( 'invitees/'+index, {status: status})
+        .subscribe(
+            res => { 
+                if(res['error'] != undefined){
+                    this.errorMsg = res['error'].join("<br/>");
+                } else {
+                    this.successMsg=this.pageContent['Messages']['CreateSuccess'];
+                    this.loadReceivedItems();
+                }              
+              this.isLoading = false;
+            },
+            error =>  {
+              this.errorMsg = error.status + ': ' + error.error;
+              this.isLoading = false;
+            }
+        );
+    }
+
+    getInviteeObj(invitationId){
+        for (var i = this.invitee_rows.length - 1; i >= 0; i--) {
+            if(this.invitee_rows[i].invitationId == parseInt(invitationId)) {
+                return this.invitee_rows[i];
+            }
+        }
 
     }
 }
