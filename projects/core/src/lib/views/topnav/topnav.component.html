@@ -1,0 +1,17 @@
+<div class="fixed-top shadow-md bg-white rounded border-bottom animated fadeInDown ">
+	<div class="container">
+		<div class="row mt-2 mb-2">
+			<div class="col-12">
+				<div class="nav-icon" (click)="toggleFilters()" [ngClass]="{' open ' : showFilters}"><span></span> <span></span> <span></span> <span></span></div>
+			<div class="align-items-right" style="text-align: center;" >
+				<a [routerLink]="['/']" class="" target="_self" style="text-decoration: none; "><h4>JAM INVITATIONS</h4></a>
+			</div>
+			<div class="align-items-right">
+				<div class="search-icon" (click)="toggleSearch()" [ngClass]="{' open ' : showSearch}"></div>
+			</div>
+			</div>
+		</div>
+		<lib-search *ngIf="showSearch"></lib-search>
+		<lib-filters *ngIf="showFilters" (hideFilters)='clearFilters()'></lib-filters>
+	</div>
+</div>

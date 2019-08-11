@@ -1,0 +1,26 @@
+
+.footer {
+	background-color: #29343a;
+	color: #fff;
+	margin-top: 20px;
+}
+.footer.footer-no-margin {
+	margin-top: 0;
+}
+.footer-logo {
+	background-color: #37454d;
+	font-size: 12px;
+	text-align: center;
+	padding: 20px;
+	margin-top: 32px;
+}
+
+.container-wide {
+	max-width: 1120px;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+	padding: 0 20px;
+	margin-bottom: 64px;
+	padding-top: 20px;
+}

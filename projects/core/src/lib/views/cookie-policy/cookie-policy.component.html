@@ -1,0 +1,4 @@
+<div id="cookieConsent" *ngIf="!areCookiesAccepted && !isLoading && cookieContent">
+    <div id="closeCookieConsent" (click)="concentChange(true)">x</div>
+    {{cookieContent?.Consent}} <a href="{{cookieContent?.Link}}" target="_blank" [innerHTML]="cookieContent?.ReadMoreText"></a> <a class="cookieConsentOK" [innerHTML]="cookieContent?.ReadMoreButton" (click)="concentChange(true)"></a>
+</div>
