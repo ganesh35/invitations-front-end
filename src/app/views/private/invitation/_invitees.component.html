@@ -1,0 +1,47 @@
+<div class="card animated fadeIn border mb-3 pb-3">
+	<div class="card-body">
+		<h3 [innerHTML]="pageContent?.Invite?.Title"></h3>
+		<br/>
+		<div class="form-group row">
+		    <label for="title" class="col-sm-2 col-form-label" [innerHTML]="pageContent?.Fields?.invitees"></label>
+		    <div class="col-sm-10">
+		    	<textarea class="form-control" placeholder="{{pageContent?.Invite?.HelpText}}" [(ngModel)]="invitees"></textarea>
+		    	<small class="text-muted" [innerHTML]="pageContent?.Invite?.HelpText"></small>
+		    </div>
+		</div>
+		<div class="text-md-right">
+			<button  class="btn btn-outline-info" [innerHTML]="pageContent?.Buttons?.Save" (click)="saveItems()"></button> &nbsp;
+		</div>
+
+		
+
+	</div>
+</div>
+<div *ngIf="isLoading">Loading ...</div>
+<br/>
+<lib-alert *ngIf="errorMsg" [alertType]="'danger'" [alertContent]="errorMsg" (alertClose)="clearMsg()"></lib-alert>
+<lib-alert *ngIf="successMsg" [alertType]="'success'" [alertContent]="successMsg" (alertClose)="clearMsg()"></lib-alert>
+
+<div class="card animated fadeIn border mb-3 pb-3" *ngIf="this?.payload?.items">
+	<div class="card-body">
+		<h3 [innerHTML]="pageContent?.SentInvitations?.Title"></h3>
+		<br/>
+		<table class="table table-striped table-hover table-responsive" >
+		<ng-template ngFor let-b [ngForOf]="payload?.items" let-index=index>
+			<tr>
+				<td>{{index + 1}}</td>
+				<td>{{b.invitationTo}}</td>
+				<td>{{b.status}}</td>
+				<td>{{b.status}}</td>
+			</tr>
+
+		</ng-template>
+		<tr>
+			<td colspan="4"><pagination [totalItems]="payload?.paginator?.totalItems" [itemsPerPage]="payload?.paginator?.recordsPerPage"  [(ngModel)]="currentPage"  [maxSize]="5" (click)="loadItems()" [boundaryLinks]="false"></pagination></td>
+		</tr>
+
+		</table>
+
+	</div>
+</div>
+

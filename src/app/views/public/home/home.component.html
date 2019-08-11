@@ -1,0 +1,25 @@
+
+<lib-loading *ngIf="isLoading"></lib-loading>
+<lib-alert *ngIf="errorMsg" [alertType]="'danger'" [alertContent]="errorMsg" (alertClose)="clearMsg()"></lib-alert>
+
+<div class="container" *ngIf="!isLoading">
+<section class="jumbotron text-center animated fadeIn">
+  <h1 class="jumbotron-heading" *ngIf="pageContent?.Title" [innerHTML]="pageContent?.Title"></h1>
+  <p class="lead text-muted" *ngIf="pageContent?.IntroText" [innerHTML]="pageContent?.IntroText"></p>
+  <p class="lead text-muted" *ngIf="pageContent?.FullText" [innerHTML]="pageContent?.FullText"></p>
+  <br/>
+  <br/>
+  <p *ngIf="!_auth.isLogged()">
+    <button class="btn btn-primary my-2" (click)="_auth.doLoginLink()"  ><i class="fa fa-fw fa-sign-in"></i> Login</button> &nbsp;
+    <button class="btn btn-secondary my-2" (click)="_auth.doRegisterLink()"><i class="fa fa-fw fa-user-plus"></i> Register</button>
+  </p>
+  <p *ngIf="_auth.isLogged()">
+      <a class="btn btn-primary my-2" [routerLink]="['/invitations']"   ><i class="fa fa-fw fa-tachometer"></i> Manage Invitations</a> &nbsp;
+      <button class="btn btn-secondary my-2" (click)="_auth.logout()"><i class="fa fa-fw fa-sign-out"></i> Logout</button>
+  </p>
+  <br/>
+  <br/>
+
+  <small class="text-muted mt-5" *ngIf="pageContent?.EndText" [innerHTML]="pageContent?.EndText"></small>
+</section>
+</div>
