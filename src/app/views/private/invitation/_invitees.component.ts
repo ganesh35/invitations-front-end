@@ -89,9 +89,9 @@ export class InviteesComponent implements OnInit {
                     this.errorMsg = res['error'].join("<br/>");
                 } else {
                     this.successMsg=this.pageContent['Messages']['CreateSuccess'];
-                    this.successMsg += '<br/>Sent to: ' + res['valid'].join(",");
-                    this.successMsg += '<br/>Already Sent to: ' + res['ignored'].join(",");
-                    this.successMsg += '<br/>Not Sent to: ' + res['invalid'].join(",");
+                    //this.successMsg += '<br/>Sent to: ' + res['valid'].join(",");
+                    //this.successMsg += '<br/>Already Sent to: ' + res['ignored'].join(",");
+                    //this.successMsg += '<br/>Not Sent to: ' + res['invalid'].join(",");
                 }              
               this.isLoading = false;
             },
@@ -102,5 +102,45 @@ export class InviteesComponent implements OnInit {
         );
     }
 
+
+    changeInvitationStatus(status: string, index: number){
+        this.isLoading = true;
+        this._netService.patch( 'invitees/'+this.payload['items'][index]['id'], {status: status})
+        .subscribe(
+            res => { 
+                if(res['error'] != undefined){
+                    this.errorMsg = res['error'].join("<br/>");
+                } else {
+                    this.successMsg=this.pageContent['Messages']['CreateSuccess'];
+                    this.payload['items'][index]['status'] = status;
+                }              
+              this.isLoading = false;
+            },
+            error =>  {
+              this.errorMsg = error.status + ': ' + error.error;
+              this.isLoading = false;
+            }
+        );
+    }
+
+
+
+    deleteItem(index: string) {
+        this.isLoading = true;
+        let apiUrl = 'invitees/' + this.payload['items'][index]['id'];
+        this._netService.delete(apiUrl)
+            .subscribe(
+                res => {
+                    this.successMsg=this.pageContent['Messages']['DeleteSuccess'];
+                    this.payload['items'].splice(index, 1);
+                    this.isLoading = false;
+                },
+                error => {
+                    this.isLoading = false;
+                    this.errorMsg=this.pageContent['Messages']['UnknownError'];
+                }
+            );
+
+    }
 
 }

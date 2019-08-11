@@ -54,6 +54,9 @@ export class NetService {
         return this._http.put( environment.apiUrl + url, data, this.getRequestHeaders());
     }
 
+    patch<T>(url:string, data:any){
+        return this._http.patch( environment.apiUrl + url, data, this.getRequestHeaders());
+    }
 
     post<T>(url:string, data:any){
         return this._http.post(environment.apiUrl + url, data, this.getRequestHeaders());
