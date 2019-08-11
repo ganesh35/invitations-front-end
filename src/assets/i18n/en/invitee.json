@@ -1,0 +1,26 @@
+{
+	"Invite":{
+		"Title": "Send this invitation to",
+		"HelpText": "Enter valid mail-ids seperated by comma / line-break"
+	},
+	"SentInvitations":{
+		"Title": "Invitation sent to",
+		"HelpText": "Enter valid mail-ids seperated by comma / line-break"	
+	},
+	"Buttons": {
+		"Back": "<i class='fa fa-chevron-left'> Back</i>",
+		"Save": "Invite now!"
+	},
+	"Fields": {
+		"invitees": "Invitees"
+	},
+	"Messages":{
+		"UnknownError": "Unknown error",
+		"LoadError": "Error loading invitations",
+		"CreateSuccess": "Invitations has been successfully sent",
+		"ValidationError": "Invalid Email addresses"
+	}
+
+}
+
+

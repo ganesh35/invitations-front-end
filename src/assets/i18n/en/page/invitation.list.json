@@ -1,0 +1,27 @@
+{
+	"Title": "Manage Invitations",
+	"IntroText":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+	"FullText":"",
+	"EndText":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+	"Buttons": {
+		"New": "<i class='fa fa-plus'> New</i>",
+		"Delete": "Delete",
+		"Edit": "Edit",
+		"Back": "<i class='fa fa-chevron-left'> Back</i>",
+		"Reload": "<i class='fa fa-refresh'> Reload</i>"
+	},
+	"Fields": {
+		"title": "Title",
+		"createdAt": "Date Created",
+		"updatedAt": "Date Updated"
+	},
+	"Messages":{
+		"Delete": "Are you sure!!!   You want to delete",
+		"UnknownError": "Unknown error",
+		"LoadError": "Error loading invitatoins",
+		"DeleteSuccess": "Invitation deleted successfully"
+	}
+
+}
+
+

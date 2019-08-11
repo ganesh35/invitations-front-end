@@ -1,0 +1,25 @@
+
+{
+	"Title": "Create Invitation",
+	"IntroText":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+	"FullText":"",
+	"EndText":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+	"Buttons": {
+		"Back": "<i class='fa fa-chevron-left'> Back</i>",
+		"Save": "<i class='fa fa-save'> Save</i>"
+	},
+	"Fields": {
+		"title": "Title",
+		"description": "Description"
+	},
+	"Messages":{
+		"UnknownError": "Unknown error",
+		"LoadError": "Error loading invitations",
+		"CreateSuccess": "New record invitation created successfully",
+		"ValidationError": "Invalid Field(s): Title / Description "
+
+	}
+
+}
+
+

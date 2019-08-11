@@ -1,0 +1,69 @@
+{
+	"Title": "trivago USA Southeast Destination",
+	"IntroText":"USA Southeast Destination Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+	"FullText":"",
+	"EndText":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+	"seo_meta":{
+		"title": "trivago USA Southeast Destination",
+		"subject": "trivago USA Southeast Destination",
+		"url": "https://magazine.trivago.com",
+		"image": "https://imgcy.trivago.com/f_auto,q_auto/hardcodedimages/logo_fb.png",
+		"description": "USA Southeast Destination showcases the most compelling hotel experiences - Find out the secrets behind your next room, as well as tips about when and where to go!",
+		"author": "trivago",
+		"keywords": "trivago, magazine",
+		"robots": "index,follow",
+
+		"fb_app_id": "",
+		"fb_page_id": "",
+		"fb_site_name": "magazine.trivago.com",
+		"fb_title": "trivago USA Southeast Destination",
+		"fb_url": "https://magazine.trivago.com",
+		"fb_description": "USA Southeast Destination showcases the most compelling hotel experiences - Find out the secrets behind your next room, as well as tips about when and where to go!",
+		"fb_image": "https://imgcy.trivago.com/f_auto,q_auto/hardcodedimages/logo_fb.png",
+
+		"twitter_card": "trivago USA Southeast Destination",
+		"twitter_account_id": "",
+		"twitter_site": "magazine.trivago.com",
+		"twitter_creator": "trivago",
+		"twitter_url": "https://magazine.trivago.com",
+		"twitter_title": "trivago USA Southeast Destination",
+		"twitter_description": "USA Southeast Destination showcases the most compelling hotel experiences - Find out the secrets behind your next room, as well as tips about when and where to go!",
+		"twitter_image": "https://imgcy.trivago.com/f_auto,q_auto/hardcodedimages/logo_fb.png",
+		"twitter_image:src": "",
+
+		"og_type": "website",
+		"og_title": "trivago USA Southeast Destination",
+		"og_description": "USA Southeast Destination showcases the most compelling hotel experiences - Find out the secrets behind your next room, as well as tips about when and where to go!",
+		"og_image": "https://imgcy.trivago.com/f_auto,q_auto/hardcodedimages/logo_fb.png",
+		"og_url": "https://magazine.trivago.com",
+		"og_site_name": "magazine.trivago.com"
+	},
+	"Schemas": [
+		{
+			"@context" : "http://schema.org",
+		    "@type" : "Organization",
+		    "name" : "trivago",
+		    "url" : "https://www.trivago.com",
+		    "logo": "https://imgcy.trivago.com/f_auto,q_auto/hardcodedimages/logo_fb.png",
+		    "sameAs" : [ "https://www.facebook.com/trivagoUS/", "https://twitter.com/trivago", "https://www.instagram.com/trivago/" ],
+		    "contactPoint": [{
+		    "@type": "ContactPoint",
+		    	"telephone": "",
+				"contactType": "customer service"
+			}]
+		},
+		{
+			"@context": "http://schema.org",
+			"@type": "Blog",
+			"name": "trivago USA Southeast Destination",
+			"url": "https://magazine.trivago.com",
+			"description": "Magazine showcases the most USA Southeast Destination compelling hotel experiences - Find out the secrets behind your next room, as well as tips about when and where to go!",
+			"image": {
+				"@type": "imageObject",
+				"url": "https://imgcy.trivago.com/f_auto,q_auto/hardcodedimages/logo_fb.png"
+			}
+		}
+	]
+}
+
+
