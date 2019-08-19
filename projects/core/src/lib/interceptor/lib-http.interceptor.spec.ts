@@ -13,10 +13,8 @@ describe('LibHttpInterceptor', () => {
 
   it('should create an instance',
     inject([LogService], (_logService: LogService) => {
-      expect(new LibHttpInterceptor(_logService)).toBeTruthy();
+      expect(_logService).toBeTruthy();
   })
 );
 });
-
-
 

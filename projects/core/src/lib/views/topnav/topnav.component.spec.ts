@@ -3,7 +3,6 @@ import { TopnavComponent } from './topnav.component';
 import { LoadingComponent } from '../../components/tools/loading/loading.component';
 import { SearchComponent } from '../_search/search.component';
 import { FiltersComponent } from '../_filters/filters.component';
-import { FilterItemsComponent } from '../_filters/filter.items.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TopnavComponent', () => {
@@ -12,7 +11,7 @@ describe('TopnavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopnavComponent, SearchComponent,  FiltersComponent, LoadingComponent, FilterItemsComponent ],
+      declarations: [ TopnavComponent, SearchComponent,  FiltersComponent, LoadingComponent ],
       imports: [ RouterTestingModule ]
     })
     .compileComponents();

@@ -51,6 +51,4 @@ export class LibHttpInterceptor implements HttpInterceptor {
                 return throwError(error);
             }));
     }
-
-
 }

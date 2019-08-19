@@ -42,5 +42,7 @@ export class HomeComponent implements OnInit {
             }
         );
     }
-
+    clearMsg(){
+        this.errorMsg='';
+    }
 }

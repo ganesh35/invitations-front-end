@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SimpleLayoutComponent } from './simple-layout.component';
+import { CoreModule } from 'core';
 
 describe('SimpleLayoutComponent', () => {
   let component: SimpleLayoutComponent;
@@ -9,7 +10,7 @@ describe('SimpleLayoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SimpleLayoutComponent ],
-      imports: [ RouterTestingModule ]
+      imports: [ RouterTestingModule, CoreModule ]
     })
     .compileComponents();
   }));

@@ -1,24 +1,87 @@
-# Core
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
 
-## Code scaffolding
+# Setting up initial App
 
-Run `ng generate component component-name --project core` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project core`.
-> Note: Don't forget to add `--project core` or else it will be added to the default project in your `angular.json` file. 
+## Update npm
+```sh
+npm install npm@latest -g
 
-## Build
+```
+## Install/update  Angular CLI
+```sh
+npm install @angular/cli -g 
+```
 
-Run `ng build core` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Create a workspace and initial application
+```sh
+ng new front-end
+cd front-end
+```
 
-## Publishing
+## Creating a Core Module 
+```sh
+ng generate library core
+```
 
-After building your library with `ng build core`, go to the dist folder `cd dist/core` and run `npm publish`.
+## Incremental build, serve and test
+```sh
+ng build core --watch
+ng serve
+ng test
+```
 
-## Running unit tests
 
-Run `ng test core` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Usage
 
-## Further help
+#### Import to app.module
+```javascript
+// front-end/src/app/app.module.ts
+import { CoreModule } from 'core';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    CoreModule
+   ]
+})
+export class AppModule { }   
+```
+
+## Environment Files
+```sh
+mkdir front-end/projects/core/src/environments/environment.prod.ts
+mkdir front-end/projects/core/src/environments/environment.ts
+```
+
+
+
+
+
+
+
+## Font-Awesome
+- Installation
+```sh
+npm install --save font-awesome
+```
+
+- Usage
+- File:  .anguular.json -
+```javascript
+"styles": [
+    "./node_modules/font-awesome/css/font-awesome.css",
+    
+]
+```
+
+
+```sh
+ng g component views/invitations --module app 
+```
+
+# Bootstrap Angular components
+Ref: https://valor-software.com/ngx-bootstrap/#/pagination
+```sh
+npm install ngx-bootstrap --save
+```
+
+

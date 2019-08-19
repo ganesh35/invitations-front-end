@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FiltersComponent } from './filters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from '../../components/tools/loading/loading.component';
-import { FilterItemsComponent } from './filter.items.component';
 import { RouterTestingModule } from '@angular/router/testing';
 describe('FiltersComponent', () => {
   let component: FiltersComponent;
@@ -10,7 +9,7 @@ describe('FiltersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FiltersComponent, LoadingComponent, FilterItemsComponent ],
+      declarations: [ FiltersComponent, LoadingComponent],
       imports: [ HttpClientModule, RouterTestingModule ]
     })
     .compileComponents();

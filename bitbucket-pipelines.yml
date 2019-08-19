@@ -1,0 +1,38 @@
+# This is a sample build configuration for JavaScript.
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        name: Deploy to s3 bucket
+        deployment: test
+        caches:
+          - node
+        script: # Modify the commands below to build your repository.
+          - echo "Installing packages"
+          - npm install --quiet
+          - apt update && apt install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+          - npm install -g @angular/cli
+#          - echo "Running tests on Library Core"
+#          - ng test core
+          - echo "Building Library Core"
+          - ng build core
+#          - echo "Running tests on App"
+#          - ng test
+          - echo "Building main App"
+          - ng build --prod
+          - ls -ltr
+          - cd dist/front-end
+          - echo "Deploying to s3 bucket"
+          - pipe: atlassian/aws-s3-deploy:0.2.4
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: 'eu-central-1'
+              ACL: "public-read"
+              S3_BUCKET: 'invitation-system'
+              LOCAL_PATH: $(pwd)

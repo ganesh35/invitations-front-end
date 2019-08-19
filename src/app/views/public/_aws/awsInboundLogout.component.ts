@@ -21,7 +21,7 @@ import { AuthService } from 'core';
 })
 export class AWSInboundLogoutComponent implements OnInit {
     loading:boolean = true;
-    constructor( private _auth: AuthService) {}
+    constructor( public _auth: AuthService) {}
   	ngOnInit() {
           this.loading = false;
     }
